@@ -1,0 +1,24 @@
+:root{
+  --key-bg:#f3f3f3;
+  --key-border:#ccc;
+  --accent:#4a90e2;
+}
+body{font-family:system-ui,Segoe UI,Arial;display:flex;min-height:100vh;align-items:center;justify-content:center;background:#fafafa;margin:0}
+.container{width:900px;max-width:95%;padding:20px}
+h1{margin:0 0 12px 0;font-size:20px}
+#input{width:100%;box-sizing:border-box;padding:12px;font-size:16px;border:1px solid #ddd;border-radius:6px;resize:vertical}
+.keyboard{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+/* hidden by default and shown when `.visible` is added */
+.keyboard{position:fixed;left:50%;transform:translateX(-50%);bottom:-380px;transition:bottom .18s ease,opacity .18s ease;opacity:0;z-index:1000}
+.keyboard.visible{bottom:20px;opacity:1}
+
+/* floating toggle button */
+.kb-toggle{position:fixed;top:20px;right:20px;padding:8px 12px;border-radius:8px;border:1px solid var(--key-border);background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.06);cursor:pointer;z-index:1100}
+.kb-toggle.active{background:var(--accent);color:#fff;border-color:transparent}
+.kb-toggle:focus{outline:2px solid rgba(74,144,226,0.25)}
+.row{display:flex;gap:8px}
+.key{background:var(--key-bg);border:1px solid var(--key-border);padding:10px 12px;border-radius:6px;cursor:pointer;user-select:none;text-transform:capitalize;min-width:40px;text-align:center;box-shadow:0 1px 0 rgba(0,0,0,0.02)}
+.key.wide{min-width:80px}
+.key.extra-wide{min-width:180px}
+.key.active{background:var(--accent);color:#fff;border-color:transparent}
+.key:active{transform:translateY(1px)}
